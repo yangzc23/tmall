@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="bookmark" href="favicon.ico" type="image/x-icon" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/tmall.js"></script>
+<script>
+function login(){
+    $.ajax({
+    	//几个参数需要注意一下
+        type: "post",//方法类型
+        dataType: "json",//预期服务器返回的数据类型
+        url: "portal/login" ,//url
+        data: $("#login").serialize(),
+        success: function (data) {
+            //console.log(data);//打印服务端返回的数据(调试用)
+            if (data.status == 200) {
+            	sessionStorage.setItem('user',data.data.username);
+            	sessionStorage.setItem('credit',data.data.credit);
+            	document.location = "index.html";
+            }
+        },
+        error : function() {
+            alert("异常！");
+        }
+    });
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="form-horizontal col-md-offset-3">
+<h3>登录</h3>
+<div class="col-md-6">
+<form role="form" id="login">
+<div class="form-group">
+<input name="username" class="form-control" type="text" placeholder="请输入用户名" autofocus="autofocus"/>
+</div>
+<div class="form-group">
+<input name="password" class="form-control" type="password" placeholder="请输入密码" />
+</div>
+</form>
+<div class="form-group">
+<button class="btn btn-primary" id="login-btn" onclick="login();">登录</button>
+</div>
+</div>
+</div>
+</div>
+<!-- <form id="login">
+<table>
+<tr><td>账号：</td><td><input type="text" name="username"/></td></tr>
+<tr><td>密码：</td><td><input type="password" name="password"/></td></tr>
+<tr><td></td><td><input id="login_btn" type="button" value="登录" /></td></tr>
+</table>
+</form> -->
+</body>
+</html>

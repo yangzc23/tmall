@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-27 10:33:55 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.yzc.entity.TOrder" table="t_order" catalog="tmall" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="TUser" class="com.yzc.entity.TUser" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="totalAmount" type="java.lang.Float">
+            <column name="total_amount" precision="10" />
+        </property>
+        <property name="actualTotalAmount" type="java.lang.Float">
+            <column name="actual_total_amount" precision="10" />
+        </property>
+        <property name="discountByCredit" type="java.lang.Float">
+            <column name="discount_by_credit" precision="10" />
+        </property>
+        <property name="paymentGateway" type="java.lang.Integer">
+            <column name="payment_gateway" />
+        </property>
+        <property name="paymentStatus" type="java.lang.Integer">
+            <column name="payment_status" />
+        </property>
+        <property name="orderStatus" type="java.lang.Integer">
+            <column name="order_status" />
+        </property>
+        <property name="useCredit" type="java.lang.Boolean">
+            <column name="use_credit" />
+        </property>
+        <set name="TItems" table="t_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_id" length="50" />
+            </key>
+            <one-to-many class="com.yzc.entity.TItem" />
+        </set>
+    </class>
+</hibernate-mapping>

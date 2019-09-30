@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-27 10:33:55 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="com.yzc.entity.TUser" table="t_user" catalog="tmall" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="true" />
+        </property>
+        <property name="credit" type="java.lang.Integer">
+            <column name="credit" />
+        </property>
+        <set name="TOrders" table="t_order" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.yzc.entity.TOrder" />
+        </set>
+    </class>
+</hibernate-mapping>
