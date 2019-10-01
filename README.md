@@ -18,6 +18,8 @@
 |username|varchar(50)|非空|用户名|
 |password|varchar(50)|非空|登录密码|
 |credit|int|默认值为0|积分|
+|mobile|varchar(50)||手机号码|
+|address|varchar(200)||收货地址|
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190927164148868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjUxODk3,size_16,color_FFFFFF,t_70)
 
@@ -52,6 +54,7 @@
 |payment_status|int||订单支付状态|
 |order_status|int||订单状态|
 |use_credit|boolean||是否使用积分|
+|create_time|datetime||下单时间|
 
 **订单明细表：t_item**
 
