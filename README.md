@@ -65,6 +65,16 @@
 |product_id|int|外键|商品编号|
 |quality|int||购买数量|
 
+**兑换记录表：t_exchange_records**
+|字段名|数据类型|约束|描述|
+|---------|------------|------|------|
+|id|int|主键|记录编号|
+|user_id|int|外键|用户编号|
+|product_id|int|外键|商品编号|
+|order_id|varchar(50)|外键|订单编号|
+|exchange_quantity|int||兑换数量|
+|exchange_date|date||兑换日期|
+
 ### 参考资料
 
 [[01] springmvc拦截器实现用户登录权限验证](https://www.cnblogs.com/limn/p/8733126.html)
