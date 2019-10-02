@@ -27,7 +27,7 @@
 |mobile|varchar(50)||手机号码|
 |address|varchar(200)||收货地址|
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190927164148868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjUxODk3,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191002104437405.png)
 
 **商品表：t_product**
 
@@ -45,7 +45,7 @@
 |img_url|varchar(100)||图片路径|
 |desc|text||商品描述|
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190927164100844.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191002105053592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjUxODk3,size_16,color_FFFFFF,t_70)
 
 **订单表：t_order**
 
