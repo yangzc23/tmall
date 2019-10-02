@@ -42,7 +42,7 @@
 |stock|int||库存数量|
 |credit|int|默认值为0|积分|
 |exchange_flag|boolean|默认值false|能否使用积分兑换|
-|im_url|varchar(100)||图片路径|
+|img_url|varchar(100)||图片路径|
 |desc|text||商品描述|
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190927164100844.png)
