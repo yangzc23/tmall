@@ -1,5 +1,5 @@
 var $table;	
-var rows = 5;
+var rows = 3;
 
 function initMainTable() {	//初始化bootstrap-table的内容
     //记录页面bootstrap-table全局变量$table，方便应用
@@ -39,12 +39,15 @@ function initMainTable() {	//初始化bootstrap-table的内容
             return JSON.stringify(temp);
         },
         columns: [{
-            checkbox: true,  
-            visible: true                  //是否显示复选框  
-        }, {
             field: 'id',
             title: '编号',
+            visible: false,
             sortable: true
+        }, {
+            field: 'imageUrl',
+            title: '实物图片',
+            width: 120,
+            formatter: imageFormatter
         }, {
             field: 'name',
             title: '商品名称',
@@ -58,9 +61,9 @@ function initMainTable() {	//初始化bootstrap-table的内容
             field: 'stock',
             title: '库存',
         }, {
-            field: 'quality',
+            field: 'quantity',
             title: '购买数量',
-            formatter: qualityFormatter
+            formatter: quantityFormatter
         }, {
             field:'id',
             title: '操作',
@@ -80,7 +83,7 @@ function initMainTable() {	//初始化bootstrap-table的内容
 
 function actionFormatter(value, row, index) {	//操作栏的格式化
     var id = value;
-    var result = "<button type=\"button\" class=\"btn btn-primary\" onclick=\"add("+id+",this);\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> 加入购物车</button>";
+    var result = "<button type=\"button\" class=\"btn btn-primary\" onclick=\"add("+id+",this);\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> 加入购物车</button>";
     return result;
 }
 
@@ -95,7 +98,7 @@ function responseHandler(res) {
 	 }
 }
 
-function qualityFormatter(value, row, index) {	//
+function quantityFormatter(value, row, index) {	//
     var result = "<input type='text' size='3' value='1' />";
     return result;
 }
@@ -103,6 +106,11 @@ function qualityFormatter(value, row, index) {	//
 function priceFormatter(value, row, index) {	//
     var result = '￥'+value.toFixed(2);
     return result;
+}
+
+function imageFormatter(value, row, index){
+	var result = "<img src=\""+value+"\">";
+	return result;
 }
 
 function add(id, e){
@@ -120,7 +128,7 @@ function add(id, e){
 	var row = $table.bootstrapTable('getRowByUniqueId', id);
 	//alert(JSON.stringify(row));
 	var item = row;
-	item.quality = n;
+	item.quantity = n;
 	cart.push(item);
 	alert(JSON.stringify(cart));
 	sessionStorage.setItem('cart',JSON.stringify(cart));
@@ -131,4 +139,22 @@ function add(id, e){
 	//var cart = sessionStorage.getItem('cart');
 	//cart.push(row);
 	//alert(cart[0]);
+}
+
+function logout(){
+    $.ajax({
+    	//几个参数需要注意一下
+        type: "get",//方法类型
+        dataType: "json",//预期服务器返回的数据类型
+        url: "portal/logout" ,//url
+        success: function (data) {
+            //console.log(data);//打印服务端返回的数据(调试用)
+            if (data.status == 200) {
+            	document.location = "login.html";
+            }
+        },
+        error : function() {
+            alert("异常！");
+        }
+    });
 }

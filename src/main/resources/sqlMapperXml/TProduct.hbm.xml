@@ -26,6 +26,9 @@
         <property name="exchangeFlag" type="java.lang.Boolean">
             <column name="exchange_flag" />
         </property>
+        <property name="imageUrl" type="java.lang.String">
+            <column name="img_url" />
+        </property>        
         <set name="TItems" table="t_item" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="product_id" />

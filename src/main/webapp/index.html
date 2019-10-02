@@ -30,30 +30,14 @@
 		}
 	});
 	
-	function logout(){
-	    $.ajax({
-	    	//几个参数需要注意一下
-	        type: "get",//方法类型
-	        dataType: "json",//预期服务器返回的数据类型
-	        url: "portal/logout" ,//url
-	        success: function (data) {
-	            //console.log(data);//打印服务端返回的数据(调试用)
-	            if (data.status == 200) {
-	            	document.location = "login.html";
-	            }
-	        },
-	        error : function() {
-	            alert("异常！");
-	        }
-	    });
-	}
+
 </script>
 </head>
 <body>
 <ul class="nav nav-pills">
   <li role="presentation" class="active" ><a href="#">首页</a></li>
   <li role="presentation"><a href="#">我的淘宝</a></li> 
-  <li role="presentation"><a href="#">购物车 <span id="quantity">0</span>件</a></li>     
+  <li role="presentation"><a href="cart.html">购物车 <span id="quantity">0</span>件</a></li>     
   <li role="presentation"><a href="#">您好，<span id="usrname"></span></a></li>
   <li role="presentation"><a href="#">积分<span id="points"></span></a></li>
   <li role="presentation"><a href="javascript:;" onclick="logout();">退出</a></li>

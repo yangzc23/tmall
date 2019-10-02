@@ -19,6 +19,7 @@ public class TProduct implements java.io.Serializable {
 	private Integer exchangeCountLimit;
 	private Integer stock;
 	private Boolean exchangeFlag;
+	private String imageUrl;
 	
 	private Set TItems = new HashSet(0);
 
@@ -30,7 +31,7 @@ public class TProduct implements java.io.Serializable {
 	}
 
 	public TProduct(int id, String name, Float price, Integer exchangeCredit, Integer exchangeCountLimit, Integer stock,
-			Boolean exchangeFlag, Set TItems) {
+			Boolean exchangeFlag, String imageUrl, Set TItems) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -38,6 +39,7 @@ public class TProduct implements java.io.Serializable {
 		this.exchangeCountLimit = exchangeCountLimit;
 		this.stock = stock;
 		this.exchangeFlag = exchangeFlag;
+		this.imageUrl = imageUrl;
 		this.TItems = TItems;
 	}
 
@@ -95,6 +97,14 @@ public class TProduct implements java.io.Serializable {
 
 	public void setExchangeFlag(Boolean exchangeFlag) {
 		this.exchangeFlag = exchangeFlag;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Set getTItems() {
