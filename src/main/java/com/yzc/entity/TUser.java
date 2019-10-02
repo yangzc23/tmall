@@ -14,6 +14,8 @@ public class TUser implements java.io.Serializable {
 	private String username;
 	private String password;
 	private Integer credit;
+	private String mobile;
+	private String address;
 	private Set TOrders = new HashSet(0);
 
 	public TUser() {
@@ -25,11 +27,13 @@ public class TUser implements java.io.Serializable {
 		this.password = password;
 	}
 
-	public TUser(int id, String username, String password, Integer credit, Set TOrders) {
+	public TUser(int id, String username, String password, Integer credit, String mobile,String address, Set TOrders) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.credit = credit;
+		this.mobile = mobile;
+		this.address = address;
 		this.TOrders = TOrders;
 	}
 
@@ -63,6 +67,22 @@ public class TUser implements java.io.Serializable {
 
 	public void setCredit(Integer credit) {
 		this.credit = credit;
+	}	
+	
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Set getTOrders() {

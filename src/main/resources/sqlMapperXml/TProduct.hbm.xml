@@ -29,6 +29,9 @@
         <property name="imageUrl" type="java.lang.String">
             <column name="img_url" />
         </property>        
+        <property name="desc" type="java.lang.String">
+            <column name="desc" />
+        </property>             
         <set name="TItems" table="t_item" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="product_id" />
