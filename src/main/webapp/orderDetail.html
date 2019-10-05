@@ -30,18 +30,19 @@ $(function(){
 	         success: function (data) {
 	             //console.log(data);//打印服务端返回的数据(调试用)
 	             if (data.status == 200) {
-	            	initItemsTable(data.data.titems);
-	            	$("#order_create_time").text(data.data.createTime);
-	         		$("#order_itemCount").text(data.data.titems.length);
-	        		var count = 0;
-	        		var total = 0.00;
-	        		$.each(data.data.titems, function(index,obj){
-	        			count += obj.quantity;
-	        			total += obj.price*obj.quantity;
-	        		});
-	        		$("#order_qtyCount").text(count);
-	        		$("#order_priceTotal").text(total.toFixed(2));
-	             }
+		            	var orderTime = new Date(new Date(data.data.createTime));
+		            	initItemsTable(data.data.titems);
+		            	$("#order_create_time").text(orderTime.toLocaleString());
+		            	$("#order_itemCount").text(data.data.titems.length);
+		            	var count = 0;
+		            	var total = 0.00;
+		            	$.each(data.data.titems, function(index,obj){
+		            		count += obj.quantity;
+		            		total += obj.price*obj.quantity;
+		            	});
+		            	$("#order_qtyCount").text(count);
+		            	$("#order_priceTotal").text(total.toFixed(2));
+		            }
 	         },
 	         error : function() {
 	             alert("异常！");
