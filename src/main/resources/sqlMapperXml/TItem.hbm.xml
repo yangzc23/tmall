@@ -6,16 +6,16 @@
     <class name="com.yzc.entity.TItem" table="t_item" catalog="tmall" optimistic-lock="version">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
-        <many-to-one name="TOrder" class="com.yzc.entity.TOrder" fetch="select">
+        <many-to-one name="TOrder" class="com.yzc.entity.TOrder" lazy="false" fetch="select">
             <column name="order_id" length="50" />
         </many-to-one>
-        <many-to-one name="TProduct" class="com.yzc.entity.TProduct" fetch="select">
+        <many-to-one name="TProduct" class="com.yzc.entity.TProduct"  lazy="false"  fetch="select">
             <column name="product_id" />
         </many-to-one>
-        <property name="quality" type="java.lang.Integer">
-            <column name="quality" />
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
         </property>
     </class>
 </hibernate-mapping>

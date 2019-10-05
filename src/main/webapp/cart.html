@@ -15,12 +15,18 @@
 <script src="js/cart.js"></script>
 <script>
 $(function(){
+	
+	$('#create_order').click(function(){
+		createOrder();
+	});
+	
 	//console.log('test....');
-	$('.logout').click(
-			function(){
+	$('.logout').click(function(){
 				logout();
 			});
+	
 	initCartTable();
+	
 	$('#usrname').text(sessionStorage.getItem('user'));
 	$('#points').text(sessionStorage.getItem('credit'));
 	var str = sessionStorage.getItem('cart');
@@ -30,7 +36,7 @@ $(function(){
 		$("#quantity").text(cart.length);
 		if(cart.length>0){
 			$("#quantity").addClass("badge");
-			$("#quantity").css("background-color","red");
+			//$("#quantity").css("background-color","red");
 		}
 		$("#itemCount").text(cart.length);
 		var count = 0;
@@ -50,7 +56,7 @@ $(function(){
 <body>
 <ul class="nav nav-pills">
   <li role="presentation"><a href="index.html">首页</a></li>
-  <li role="presentation"><a href="#">我的淘宝</a></li> 
+  <li role="presentation"><a href="orderDetail.html">我的淘宝</a></li> 
   <li role="presentation" class="active" ><a href="#">购物车 <span id="quantity">0</span>件</a></li>     
   <li role="presentation"><a href="#">您好，<span id="usrname"></span></a></li>
   <li role="presentation"><a href="#">积分<span id="points"></span></a></li>
@@ -76,9 +82,7 @@ $(function(){
  </div>
  </div>
 <div class="text-right">
-    <button class="btn btn-primary"><i class="fa fa-dollar"></i> 结算</button>
-</div>
-<div class="well m-t"><strong>注意：</strong> 请在30分钟内完成付款，否则订单会自动取消。
+    <button class="btn btn-primary" id="create_order"><i class="fa fa-dollar"></i> 结算</button>
 </div>
 </div>
 </body>

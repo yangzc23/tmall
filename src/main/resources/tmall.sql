@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2019-10-02 10:54:57
+Date: 2019-10-05 11:38:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,20 +20,22 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_item`;
 CREATE TABLE `t_item` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` varchar(50) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `quality` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`),
   KEY `product_id` (`product_id`),
   CONSTRAINT `t_item_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `t_order` (`id`),
   CONSTRAINT `t_item_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `t_product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_item
 -- ----------------------------
+INSERT INTO `t_item` VALUES ('33', '191005797305XWH0', '8001', '1');
+INSERT INTO `t_item` VALUES ('34', '191005797305XWH0', '8005', '1');
 
 -- ----------------------------
 -- Table structure for t_order
@@ -49,6 +51,7 @@ CREATE TABLE `t_order` (
   `payment_status` int(11) DEFAULT NULL,
   `order_status` int(11) DEFAULT NULL,
   `use_credit` tinyint(1) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `t_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
@@ -57,6 +60,7 @@ CREATE TABLE `t_order` (
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
+INSERT INTO `t_order` VALUES ('191005797305XWH0', '1002', '194.00', '194.00', null, null, null, null, null, '2019-10-05 10:16:16');
 
 -- ----------------------------
 -- Table structure for t_product
@@ -71,18 +75,18 @@ CREATE TABLE `t_product` (
   `stock` int(11) DEFAULT NULL,
   `exchange_flag` tinyint(1) DEFAULT NULL,
   `img_url` varchar(200) DEFAULT NULL,
-  `desc` text,
+  `description` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_product
 -- ----------------------------
-INSERT INTO `t_product` VALUES ('8001', '天猫魔盒', '189.00', '99', '1', '500000', '1', 'images/tmmh.png', null);
-INSERT INTO `t_product` VALUES ('8002', '明星同款太阳镜', '300.00', null, null, '50', '0', 'images/mxtktyj.png', null);
+INSERT INTO `t_product` VALUES ('8001', '天猫魔盒', '189.00', '99', '1', '499981', '1', 'images/tmmh.png', null);
+INSERT INTO `t_product` VALUES ('8002', '明星同款太阳镜', '300.00', null, null, '43', '0', 'images/mxtktyj.png', null);
 INSERT INTO `t_product` VALUES ('8003', 'tp-link路由器', '100.00', null, null, '60', '0', 'images/tplink.png', null);
-INSERT INTO `t_product` VALUES ('8004', '云南白药牙膏', '10.00', null, null, '70', '0', 'images/ynbyyg.png', null);
-INSERT INTO `t_product` VALUES ('8005', '康师傅红烧方便面', '5.00', null, null, '80', '0', 'images/ksfhsnrm.png', null);
+INSERT INTO `t_product` VALUES ('8004', '云南白药牙膏', '10.00', null, null, '66', '0', 'images/ynbyyg.png', null);
+INSERT INTO `t_product` VALUES ('8005', '康师傅红烧牛肉面', '5.00', null, null, '68', '0', 'images/ksfhsnrm.png', null);
 INSERT INTO `t_product` VALUES ('8006', '小米音箱', '200.00', null, null, '90', '0', 'images/xiaomiaiyx.png', null);
 
 -- ----------------------------

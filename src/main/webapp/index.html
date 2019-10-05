@@ -25,7 +25,7 @@
 			$("#quantity").text(cart.length);
 			if(cart.length>0){
 				$("#quantity").addClass("badge");
-				$("#quantity").css("background-color","red");
+				//$("#quantity").css("background-color","red");
 			}
 		}
 	});
@@ -36,7 +36,7 @@
 <body>
 <ul class="nav nav-pills">
   <li role="presentation" class="active" ><a href="#">首页</a></li>
-  <li role="presentation"><a href="#">我的淘宝</a></li> 
+  <li role="presentation"><a href="orderDetail.html">我的淘宝</a></li> 
   <li role="presentation"><a href="cart.html">购物车 <span id="quantity">0</span>件</a></li>     
   <li role="presentation"><a href="#">您好，<span id="usrname"></span></a></li>
   <li role="presentation"><a href="#">积分<span id="points"></span></a></li>

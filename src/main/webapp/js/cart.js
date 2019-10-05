@@ -99,14 +99,17 @@ function del(id, e){
 	//ids.push(n);
 	$cartTable.bootstrapTable('remove', {field:'Num',values:[index]});
 	cart = $cartTable.bootstrapTable('getData');
+	if(cart.length==0){
+		$("#quantity").removeClass("badge");
+	}
 	//alert(JSON.stringify(row));
 	//var item = row;
 	//item.quantity = n;
 	//cart.push(item);
 	//alert(JSON.stringify(cart));
 	sessionStorage.setItem('cart',JSON.stringify(cart));
-	$("#quantity").addClass("badge");
-	$("#quantity").css("background-color","red");
+	//$("#quantity").addClass("badge");
+	//$("#quantity").css("background-color","red");
 	$("#quantity").text(cart.length);
 	//console.log('test.....');
 	//var cart = sessionStorage.getItem('cart');
@@ -121,4 +124,31 @@ function del(id, e){
 	$("#itemCount").text(cart.length);	
 	$("#qtyCount").text(count);
 	$("#priceTotal").text(total.toFixed(2));
+}
+
+function createOrder(){
+    $.ajax({
+         //几个参数需要注意一下
+            type: "post",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            contentType: 'application/json',
+            url: "order/new" ,//url
+            data: sessionStorage.getItem('cart'),
+            success: function (data) {
+                //console.log(data);//打印服务端返回的数据(调试用)
+                if (data.status == 200) {
+                 sessionStorage.setItem('cart',"[]");	
+                 $cartTable.bootstrapTable('removeAll');
+                 $("#quantity").removeClass("badge");
+                 $("#quantity").text('0');
+             	$("#itemCount").text('0');	
+            	$("#qtyCount").text('0');
+            	$("#priceTotal").text('0.00');
+                 document.location = "orderDetail.html?orderId="+data.data.id;
+                }
+            },
+            error : function() {
+                alert("异常！");
+            }
+        });
 }

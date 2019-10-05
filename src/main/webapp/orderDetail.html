@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>订单详情</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="bookmark" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-table.css">
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap-table.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+<script src="js/tmall.js"></script>
+<script src="js/order.js"></script>
+<script>
+$(function(){
+	var orderId = getUrlParam('orderId');
+	//alert(orderId);
+	$('#usrname').text(sessionStorage.getItem('user'));
+	$('#points').text(sessionStorage.getItem('credit'));
+	$('#order_addr').text(sessionStorage.getItem('addr'));
+	$('#order_id').text(orderId);
+	
+	$.ajax({
+	      //几个参数需要注意一下
+	         type: "get",//方法类型
+	         dataType: "json",//预期服务器返回的数据类型
+	         url: "order/detail/"+orderId ,//url
+	         success: function (data) {
+	             //console.log(data);//打印服务端返回的数据(调试用)
+	             if (data.status == 200) {
+	            	initItemsTable(data.data.titems);
+	            	$("#order_create_time").text(data.data.createTime);
+	         		$("#order_itemCount").text(data.data.titems.length);
+	        		var count = 0;
+	        		var total = 0.00;
+	        		$.each(data.data.titems, function(index,obj){
+	        			count += obj.quantity;
+	        			total += obj.price*obj.quantity;
+	        		});
+	        		$("#order_qtyCount").text(count);
+	        		$("#order_priceTotal").text(total.toFixed(2));
+	             }
+	         },
+	         error : function() {
+	             alert("异常！");
+	         }
+	     });
+
+});
+</script>
+</head>
+<body>
+<ul class="nav nav-pills">
+  <li role="presentation"><a href="index.html">首页</a></li>
+  <li role="presentation" class="active" ><a href="#">我的淘宝</a></li> 
+  <li role="presentation"><a href="cart.html">购物车 <span id="quantity">0</span>件</a></li>     
+  <li role="presentation"><a href="#">您好，<span id="usrname"></span></a></li>
+  <li role="presentation"><a href="#">积分<span id="points"></span></a></li>
+  <li role="presentation"><a href="javascript:;" class="logout" onclick="logout();">退出</a></li>
+</ul>
+<table class="table">
+<tr><td colspan="2" width="35%" align="center">订单信息</td><td rowspan="6" style="padding-top:50px;">订单状态：</td></tr>
+<tr><td>收货地址：</td><td><span id="order_addr"></span></td></tr>
+<tr><td>买家留言：</td><td><span></span></td></tr>
+<tr><td>订单编号：</td><td><span id="order_id"></span></td></tr>
+<tr><td>下单时间：</td><td><span id="order_create_time"></span></td></tr>
+<tr><td>商家：</td><td><span></span></td></tr>
+</table>
+<div>
+<table id="items_grid" class="table"></table>
+</div>
+<div>
+ <div class="row">
+ <div class="col-md-12 col-lg-12 col-sm-12">
+ <div style="border-top:1px solid gray;padding:4px 10px;">
+ <div style="margin-left:20px;" class="pull-right total">
+  <label>金额合计:<span class="currency">￥</span><span id="order_priceTotal" class="large-bold-red">0.00</span></label>
+ </div>
+ <div class="pull-right">
+  <label>您选择了<span id="order_itemCount" class="large-bold-red" style="margin:0 4px;"></span>种产品型号，共计<span id="order_qtyCount" class="large-bold-red" style="margin:0 4px;"></span>件</label>
+ </div>
+ <div class="pull-right selected" id="selected">
+  <span id="order_selectedTotal"></span>
+ </div>
+ </div>
+ </div>
+ </div>
+<div class="text-right">
+    <button class="btn btn-primary"><i class="fa fa-dollar"></i> 前往支付宝进行支付</button>
+</div>
+<div class="well m-t"><strong>注意：</strong> 请在30分钟内完成付款，否则订单会自动取消。
+</div>
+</div>
+</body>
+</html>

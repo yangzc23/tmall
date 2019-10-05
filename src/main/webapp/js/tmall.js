@@ -133,7 +133,8 @@ function add(id, e){
 	alert(JSON.stringify(cart));
 	sessionStorage.setItem('cart',JSON.stringify(cart));
 	$("#quantity").addClass("badge");
-	$("#quantity").css("background-color","red");
+	//$("#quantity").css("background-color","red");
+	//$("#quantity").addClass("bg-info");
 	$("#quantity").text(cart.length);
 	//console.log('test.....');
 	//var cart = sessionStorage.getItem('cart');
@@ -157,4 +158,15 @@ function logout(){
             alert("异常！");
         }
     });
+}
+
+/*
+ * 获取到Url里面的参数
+ */
+function getUrlParam(name){
+	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	   var r = window.location.search.substr(1).match(reg);
+	   if (r != null) 
+		   return unescape(r[2]); 
+	   return null;
 }

@@ -10,7 +10,7 @@ public class TItem implements java.io.Serializable {
 	private int id;
 	private TOrder TOrder;
 	private TProduct TProduct;
-	private Integer quality;
+	private Integer quantity;
 
 	public TItem() {
 	}
@@ -19,11 +19,11 @@ public class TItem implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public TItem(int id, TOrder TOrder, TProduct TProduct, Integer quality) {
+	public TItem(int id, TOrder TOrder, TProduct TProduct, Integer quantity) {
 		this.id = id;
 		this.TOrder = TOrder;
 		this.TProduct = TProduct;
-		this.quality = quality;
+		this.quantity = quantity;
 	}
 
 	public int getId() {
@@ -50,12 +50,12 @@ public class TItem implements java.io.Serializable {
 		this.TProduct = TProduct;
 	}
 
-	public Integer getQuality() {
-		return this.quality;
+	public Integer getQuantity() {
+		return this.quantity;
 	}
 
-	public void setQuality(Integer quality) {
-		this.quality = quality;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 }

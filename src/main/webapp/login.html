@@ -22,6 +22,7 @@ function login(){
             if (data.status == 200) {
             	sessionStorage.setItem('user',data.data.username);
             	sessionStorage.setItem('credit',data.data.credit);
+            	sessionStorage.setItem('addr',data.data.address);
             	document.location = "index.html";
             }
         },

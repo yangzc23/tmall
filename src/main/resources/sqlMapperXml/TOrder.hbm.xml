@@ -32,7 +32,10 @@
         <property name="useCredit" type="java.lang.Boolean">
             <column name="use_credit" />
         </property>
-        <set name="TItems" table="t_item" inverse="true" lazy="true" fetch="select">
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" />
+        </property>        
+        <set name="TItems" table="t_item" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="order_id" length="50" />
             </key>
