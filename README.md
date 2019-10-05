@@ -43,9 +43,9 @@
 |credit|int|默认值为0|积分|
 |exchange_flag|boolean|默认值false|能否使用积分兑换|
 |img_url|varchar(100)||图片路径|
-|desc|text||商品描述|
+|description|text||商品描述|
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191002105053592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjUxODk3,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191005095833544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjUxODk3,size_16,color_FFFFFF,t_70)
 
 **订单表：t_order**
 
