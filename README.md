@@ -139,3 +139,17 @@
 [[27] bootstrap-table](https://www.cnblogs.com/wsblogs/p/7738044.html)
 
 [[28] 在 Bootstraptable 插件基础上新增一行，保存，删除的详解](https://www.cnblogs.com/zsber/p/9560148.html)
+
+[[29] Html页面接收参数](https://blog.csdn.net/weixin_39657319/article/details/91045583)
+
+[[30] eclipse 解决启动慢、运行慢的方法总结](https://blog.csdn.net/weidong_y/article/details/80281230)
+
+[[31] Hibernate各种主键生成策略与配置详解](https://www.cnblogs.com/hoobey/p/5508992.html)
+
+[[32] 错误：MySQL server version for the right syntax to use near](https://www.cnblogs.com/aishangtaxuefeihong/p/7675845.html)
+
+[[33] Spring4+Hibernate4 事务管理 配置 注解 AOP](https://www.cnblogs.com/mxgg/p/7226179.html)
+
+[[34] 解决Hibernate：could not initialize proxy - no Session](https://blog.csdn.net/u010167086/article/details/17029831)
+
+[[35] html网页如何传递接收地址参数?](https://www.cnblogs.com/liuxiaoming123/p/7494125.html)
