@@ -1,7 +1,15 @@
 var $cartTable;
 
 function initCartTable() {	//初始化bootstrap-table的内容
-	var cart = JSON.parse(sessionStorage.getItem('cart'));
+
+	var str = sessionStorage.getItem('cart');
+	var cart;
+	if(str != null){
+		cart = JSON.parse(str);
+	}else{
+		cart = [];
+	}
+
 	$cartTable = $('#cart_grid').bootstrapTable({
         //method: 'POST',              //请求方式（*）
         striped: true,                      //是否显示行间隔色
