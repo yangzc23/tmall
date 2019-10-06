@@ -133,7 +133,7 @@ function add(id, e){
 	alert(JSON.stringify(cart));
 	sessionStorage.setItem('cart',JSON.stringify(cart));
 	$("#quantity").addClass("badge");
-	//$("#quantity").css("background-color","red");
+	$("#quantity").css("background-color","red");
 	//$("#quantity").addClass("bg-info");
 	$("#quantity").text(cart.length);
 	//console.log('test.....');
