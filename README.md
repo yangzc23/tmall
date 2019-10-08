@@ -31,7 +31,7 @@
 |mobile|varchar(50)||手机号码|
 |address|varchar(200)||收货地址|
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191002104437405.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20191008212540567.png)
 
 **商品表：t_product**
 
@@ -157,3 +157,7 @@
 [[34] 解决Hibernate：could not initialize proxy - no Session](https://blog.csdn.net/u010167086/article/details/17029831)
 
 [[35] html网页如何传递接收地址参数?](https://www.cnblogs.com/liuxiaoming123/p/7494125.html)
+
+[[36] hibernate update 只更新部分字段的3种方法](https://www.cnblogs.com/quickcodes/p/hibernate-update-zhi-geng-xin-bu-fen-zi-duan-de3zh.html)
+
+[[37] 解决hibernate向mysql插入中文乱码问题](https://www.cnblogs.com/jiafuwei/p/4423101.html)
