@@ -106,5 +106,5 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1001', 'test', '123456', '60', '13312345678', '昆山市花桥镇创业路566号');
-INSERT INTO `t_user` VALUES ('1002', 'scott', '123456', '200', '17712345678', '上海市徐汇区虹桥路432号');
+INSERT INTO `t_user` VALUES ('1001', 'test', 'e10adc3949ba59abbe56e057f20f883e', '60', '13312345678', '昆山市花桥镇创业路566号');
+INSERT INTO `t_user` VALUES ('1002', 'scott', 'e10adc3949ba59abbe56e057f20f883e', '200', '17712345678', '上海市徐汇区虹桥路432号');

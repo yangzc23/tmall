@@ -4,7 +4,6 @@ package com.yzc.dao;
 
 import java.util.List;
 
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
@@ -15,6 +14,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 
 import com.yzc.entity.TUser;
 
@@ -133,7 +133,7 @@ public class TUserHome {
 		try {
 			Criteria criteria = sessionFactory.getCurrentSession().createCriteria("com.yzc.entity.TUser");
 			Criterion username = Restrictions.eq("username", instance.getUsername());
-			Criterion password = Restrictions.eq("password", instance.getPassword());			
+			Criterion password = Restrictions.eq("password", DigestUtils.md5DigestAsHex(instance.getPassword().getBytes()));			
 			List results = criteria.add(Restrictions.and(username, password)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;
