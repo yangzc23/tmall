@@ -161,3 +161,12 @@
 [[36] hibernate update 只更新部分字段的3种方法](https://www.cnblogs.com/quickcodes/p/hibernate-update-zhi-geng-xin-bu-fen-zi-duan-de3zh.html)
 
 [[37] 解决hibernate向mysql插入中文乱码问题](https://www.cnblogs.com/jiafuwei/p/4423101.html)
+
+**微信扫一扫关注公众号**
+
+![image.png](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMDAyNzkwMC0yMzM2ODlhNjQ1YTM2YTEyLnBuZw?x-oss-process=image/format,png#pic_center)
+
+**点击链接加入群聊**
+
+[https://jq.qq.com/?_wv=1027&k=5eVEhfN](https://jq.qq.com/?_wv=1027&k=5eVEhfN)
+软件测试学习交流QQ群号：**511619105**
