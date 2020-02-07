@@ -1,5 +1,9 @@
 # 使用SSH开发简易版Web商城
 
+# 使用的技术
+
+## Spring + Spring MVC + Hibernate
+
 ### 登录界面
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190930090116262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3MjUxODk3,size_16,color_FFFFFF,t_70)
