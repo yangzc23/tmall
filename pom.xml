@@ -6,7 +6,7 @@
   <packaging>war</packaging>
     <!-- 集中定义依赖版本号 -->
     <properties>
-        <spring.version>4.2.4.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-net.version>3.3</commons-net.version>
     </properties>  
